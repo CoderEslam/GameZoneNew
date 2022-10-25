@@ -47,6 +47,6 @@ export default function App() {
         //         <RootDrawerNavigator.Screen name="About" component={About}/>
         //     </RootDrawerNavigator.Navigator>
         // </NavigationContainer>
-        <HomeStack/>
+        <AboutStack/>
     );
 }
