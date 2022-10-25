@@ -1,12 +1,13 @@
 import {StyleSheet, Text, View} from 'react-native';
-import {createDrawerNavigator} from "@react-navigation/drawer";
 import {NavigationContainer} from "@react-navigation/native";
 import About from "./screens/about";
 import {useFonts} from "expo-font";
 import {useCallback} from "react";
 import Home from "./screens/home";
-import ReviewDetails from "./screens/reviewDetails";
-import Navigator from './routes/homeStack'
+import RootDrawerNavigator from "./routes/drawer";
+import HomeStack from "./routes/homeStack";
+import AboutStack from "./routes/aboutStack";
+import {createDrawerNavigator} from "@react-navigation/drawer";
 
 
 /*
@@ -17,10 +18,11 @@ import Navigator from './routes/homeStack'
 * */
 export default function App() {
 
-    const Drawer = createDrawerNavigator();
+    const RootDrawerNavigator = createDrawerNavigator()
 
     {/* to load custom fonts*/
     }
+
     const [fontsLoaded] = useFonts({
         'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
         'nunito-bold': require('./assets/fonts/Nunito-Bold.ttf'),
@@ -28,35 +30,23 @@ export default function App() {
     });
     const onLayoutRootView = useCallback(async () => {
         if (fontsLoaded) {
-
+            return (
+                <View>
+                    <Text>wait to load</Text>
+                </View>
+            )
         }
     }, [fontsLoaded]);
     if (!fontsLoaded) {
         return null;
     }
     return (
-        <NavigationContainer>
-            <Drawer.Navigator>
-                <Drawer.Screen name="Home" component={Home}/>
-                <Drawer.Screen name="About" component={About}/>
-                <Drawer.Screen name="Review" component={ReviewDetails}/>
-            </Drawer.Navigator>
-        </NavigationContainer>
-
-
-        // <HomeStack/>
-
-        // <View style={styles.container}>
-        //     <Text>djkbvkjdbvkj</Text>
-        // </View>
+        // <NavigationContainer>
+        //     <RootDrawerNavigator.Navigator>
+        //         <RootDrawerNavigator.Screen name="Home" component={Home}/>
+        //         <RootDrawerNavigator.Screen name="About" component={About}/>
+        //     </RootDrawerNavigator.Navigator>
+        // </NavigationContainer>
+        <HomeStack/>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});

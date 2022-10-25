@@ -1,6 +1,8 @@
 import HomeStack from "./homeStack";
 import AboutStack from "./aboutStack";
-import {createDrawerNavigator} from "@react-navigation/drawer";
+import {createDrawerNavigator} from "react-navigation-drawer";
+import {createAppContainer} from "react-navigation";
+// import {createDrawerNavigator} from "@react-navigation/drawer";
 
 const screens = {
     Home: {
@@ -11,10 +13,10 @@ const screens = {
     }
 }
 
-const RootDrawerNavigator = createDrawerNavigator()
+const RootDrawerNavigator = createDrawerNavigator(screens)
 
 
-export default RootDrawerNavigator;
+export default createAppContainer(RootDrawerNavigator);
 
 
 

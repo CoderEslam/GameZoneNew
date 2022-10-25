@@ -1,5 +1,7 @@
 import {createStackNavigator} from "react-navigation-stack";
 import About from "../screens/about";
+import {createAppContainer} from "react-navigation";
+import ReviewDetails from "../screens/reviewDetails";
 /*
 * npm install @react-navigation/native-stack
 * npm install react-native-gesture-handler
@@ -16,6 +18,12 @@ const screenNav = {
             // }
         }
     },
+    ReviewDetails: {
+        screen: ReviewDetails,
+        navigationOptions: {
+            title: "ReviewDetails"
+        }
+    }
 }
 const AboutStack = createStackNavigator(screenNav /*pass object into this fun => register for stack navigator*/, {
     // default style header for any navigation
@@ -26,6 +34,6 @@ const AboutStack = createStackNavigator(screenNav /*pass object into this fun =>
     }
 })
 
-export default AboutStack;
+export default createAppContainer(AboutStack);
 
 
