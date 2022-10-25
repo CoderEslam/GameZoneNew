@@ -8,6 +8,7 @@ import RootDrawerNavigator from "./routes/drawer";
 import HomeStack from "./routes/homeStack";
 import AboutStack from "./routes/aboutStack";
 import {createDrawerNavigator} from "@react-navigation/drawer";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 /*
@@ -18,7 +19,8 @@ import {createDrawerNavigator} from "@react-navigation/drawer";
 * */
 export default function App() {
 
-    const RootDrawerNavigator = createDrawerNavigator()
+    const Drawer = createDrawerNavigator()
+    const Tab = createBottomTabNavigator();
 
     {/* to load custom fonts*/
     }
@@ -41,12 +43,12 @@ export default function App() {
         return null;
     }
     return (
-        // <NavigationContainer>
-        //     <RootDrawerNavigator.Navigator>
-        //         <RootDrawerNavigator.Screen name="Home" component={Home}/>
-        //         <RootDrawerNavigator.Screen name="About" component={About}/>
-        //     </RootDrawerNavigator.Navigator>
-        // </NavigationContainer>
-        <AboutStack/>
+        <NavigationContainer>
+            <Tab.Navigator>
+                <Drawer.Screen name="Home" component={Home}/>
+                <Drawer.Screen name="About" component={About}/>
+            </Tab.Navigator>
+        </NavigationContainer>
+        // <RootDrawerNavigator/>
     );
 }

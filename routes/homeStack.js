@@ -20,6 +20,6 @@ const screenNav = {
 }
 const HomeStack = createStackNavigator(screenNav /*pass object into this fun => register for stack navigator*/)
 
-export default createAppContainer(HomeStack);
+export default HomeStack;
 
 
