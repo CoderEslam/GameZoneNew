@@ -45,6 +45,7 @@ export default function App() {
     return (
         <NavigationContainer>
             <Tab.Navigator>
+
                 <Drawer.Screen name="Home" component={Home}/>
                 <Drawer.Screen name="About" component={About}/>
             </Tab.Navigator>
