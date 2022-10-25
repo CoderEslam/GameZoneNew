@@ -35,14 +35,14 @@ export default function App() {
         return null;
     }
     return (
-        // <NavigationContainer>
-        //     <Drawer.Navigator>
-        //         <Drawer.Screen name="Home" component={Home}/>
-        //         <Drawer.Screen name="About" component={About}/>
-        //         <Drawer.Screen name="Review" component={ReviewDetails}/>
-        //     </Drawer.Navigator>
-        // </NavigationContainer>
-        <Navigator/>
+        <NavigationContainer>
+            <Drawer.Navigator>
+                <Drawer.Screen name="Home" component={Home}/>
+                <Drawer.Screen name="About" component={About}/>
+                <Drawer.Screen name="Review" component={ReviewDetails}/>
+            </Drawer.Navigator>
+        </NavigationContainer>
+
 
         // <HomeStack/>
 
